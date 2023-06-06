@@ -1,25 +1,27 @@
 import styled, { css } from "styled-components";
 
-import { IThemeColor } from "@/styles/themes/defaultTheme";
+import { ThemeColorTypes } from "@/styles/themes/defaultTheme";
 
 import { IButtonRounded } from ".";
 
-interface ButtonContainerProps extends IThemeColor, IButtonRounded {}
+interface ButtonContainerProps extends IButtonRounded {
+	background: ThemeColorTypes;
+}
 
 export const ButtonContainer = styled.button<ButtonContainerProps>`
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 
-  height: 2.375rem;
-  padding: 0.5rem;
+	height: 2.375rem;
+	padding: 0.5rem;
 
-  border-radius: 6px;
+	border-radius: 6px;
 
-  background-color: ${({ theme, background }) => theme.colors[background]};
+	background-color: ${({ theme, background }) => theme.colors[background]};
 
-  ${({ rounded }) =>
-    rounded &&
-    css`
-      border-radius: 50%;
-    `}
+	${({ rounded }) =>
+		rounded &&
+		css`
+			border-radius: 50%;
+		`}
 `;

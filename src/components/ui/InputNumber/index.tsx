@@ -1,11 +1,23 @@
+import { useState } from "react";
+
 import { InputNumberContainer, MinusIcon, PlusIcon } from "./styles";
 
 export function InputNumber() {
-  return (
-    <InputNumberContainer background="gray_400">
-      <MinusIcon />
-      <span>1</span>
-      <PlusIcon />
-    </InputNumberContainer>
-  );
+	const [number, setNumber] = useState<number>(0);
+
+	function handleChangeNumber(mode: string) {
+		if (mode === "add" && number < 10) {
+			setNumber((prevState) => prevState + 1);
+		} else if (mode == "subtract" && number >= 1) {
+			setNumber((prevState) => prevState - 1);
+		}
+	}
+
+	return (
+		<InputNumberContainer>
+			<MinusIcon onClick={() => handleChangeNumber("subtract")} />
+			<span>{number}</span>
+			<PlusIcon onClick={() => handleChangeNumber("add")} />
+		</InputNumberContainer>
+	);
 }

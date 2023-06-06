@@ -1,19 +1,19 @@
 import styled from "styled-components";
 
-import backgroundImage from "@assets/images/section-background.svg";
+import backgroundImage from "@assets/images/section-background.png";
 
 export const MainContainer = styled.main`
-  margin: 5rem 0rem;
+	margin: 5rem 0rem;
 `;
 
 export const BannerSection = styled.section`
-  padding: 4rem 0;
-  height: 544px;
+	padding: 4rem 0;
+	min-height: 544px;
 
-  background-image: url(${backgroundImage});
+	background-image: url(${backgroundImage});
 
-  background-position: center center;
-  background-repeat: no-repeat;
+	background-position: center top;
+	background-repeat: no-repeat;
 
-  background-size: cover;
+	background-size: 100% 544px;
 `;

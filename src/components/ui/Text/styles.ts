@@ -1,40 +1,34 @@
 import styled, { css } from "styled-components";
 
-import {
-  DefaultThemeType,
-  ThemeColorTypes,
-  ThemeFontFamilyTypes,
-  ThemeFontSizeTypes,
-} from "@/styles/themes/defaultTheme";
+import { DefaultThemeType, ThemeFontFamilyTypes, ThemeFontSizeTypes } from "@/styles/themes/defaultTheme";
 import { Box } from "@/styles/global";
 
-interface TextContainerProps {
-  size: ThemeFontSizeTypes;
-  fontFamily: ThemeFontFamilyTypes;
-  color: ThemeColorTypes;
+import { IText } from ".";
+
+function getSizeByFontFamily(size: ThemeFontSizeTypes, fontFamily: ThemeFontFamilyTypes, theme: DefaultThemeType) {
+	const sizesObject = theme.font_size[fontFamily];
+
+	if (size in sizesObject) {
+		return css`
+			font-size: ${sizesObject[size as keyof typeof sizesObject]}rem;
+		`;
+	} else {
+		return css`
+			font-size: 1rem;
+		`;
+	}
 }
 
-function getSizeByFontFamily(
-  size: ThemeFontSizeTypes,
-  fontFamily: ThemeFontFamilyTypes,
-  theme: DefaultThemeType
-) {
-  if (size in theme.font_size[fontFamily]) {
-    return css`
-      font-size: ${theme.font_size[fontFamily][size]}rem;
-    `;
-  } else {
-    return css`
-      font-size: 1rem;
-    `;
-  }
-}
+export const TextContainer = styled(Box)<IText>`
+	color: ${({ theme, color }) => theme.colors[color!]};
+	${({ fontFamily, theme }) => css`
+		font-family: ${theme.font_family[fontFamily!]};
+	`}
+	${({ weight }) =>
+		weight &&
+		css`
+			font-weight: ${weight};
+		`}
 
-export const TextContainer = styled(Box)<TextContainerProps>`
-  color: ${({ theme, color }) => theme.colors[color]};
-  ${({ fontFamily, theme }) => css`
-    font-family: ${theme.font_family[fontFamily!]};
-  `}
-  ${({ size, fontFamily, theme }) =>
-    getSizeByFontFamily(size!, fontFamily!, theme)};
+  ${({ size, fontFamily, theme }) => getSizeByFontFamily(size!, fontFamily!, theme)};
 `;
