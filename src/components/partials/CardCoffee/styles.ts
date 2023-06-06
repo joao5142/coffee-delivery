@@ -4,8 +4,13 @@ import { Card } from "@/styles/global";
 
 export const CardCoffeeContainer = styled(Card)`
   width: 16rem;
-  text-align: center;
   padding: 1.25rem;
+
+  text-align: center;
+
+  border: 6px;
+  border-top-right-radius: 36px;
+  border-bottom-left-radius: 36px;
 `;
 
 export const CoffeeTag = styled.button`
@@ -18,5 +23,11 @@ export const CoffeeTag = styled.button`
     font-weight: bold;
 
     border-radius: 15px;
+
+    margin: 0.75rem 0 1rem 0;
   `}
+`;
+
+export const ImageCoffee = styled.img`
+  margin-top: -50px;
 `;

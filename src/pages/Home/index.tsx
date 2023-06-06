@@ -32,35 +32,41 @@ export function Home() {
               />
 
               <Row gap={40} marginBottom="1.5rem">
-                <Row gap={10}>
-                  <Button background="yellow_900" rounded>
-                    <ShoppingCart size={22} weight="fill" color="white" />{" "}
-                  </Button>
-                  <Text element="span" text="Compra simples e segura" />
-                </Row>
-                <Row gap={10}>
-                  <Button background="gray_700" rounded>
-                    <ShoppingCart size={22} weight="fill" color="white" />{" "}
-                  </Button>
-                  <Text element="span" text="Embalagem mantém o café intacto" />
-                </Row>
-              </Row>
-              <Row gap={40}>
-                <Row gap={10}>
-                  <Button background="yellow_500" rounded>
-                    <ShoppingCart size={22} weight="fill" color="white" />{" "}
-                  </Button>
-                  <Text element="span" text="Entrega rápida e rastreada" />
-                </Row>
-                <Row gap={10}>
-                  <Button background="purple_500" rounded>
-                    <ShoppingCart size={22} weight="fill" color="white" />{" "}
-                  </Button>
-                  <Text
-                    element="span"
-                    text="O café chega fresquinho até você"
-                  />
-                </Row>
+                <div>
+                  <Row gap={10} marginBottom="1.5rem">
+                    <Button background="yellow_900" rounded>
+                      <ShoppingCart size={22} weight="fill" color="white" />{" "}
+                    </Button>
+                    <Text element="span" text="Compra simples e segura" />
+                  </Row>
+                  <Row gap={10} marginBottom="1.5rem">
+                    <Button background="yellow_500" rounded>
+                      <ShoppingCart size={22} weight="fill" color="white" />{" "}
+                    </Button>
+                    <Text element="span" text="Entrega rápida e rastreada" />
+                  </Row>
+                </div>
+
+                <div>
+                  <Row gap={10} marginBottom="1.5rem">
+                    <Button background="gray_700" rounded>
+                      <ShoppingCart size={22} weight="fill" color="white" />{" "}
+                    </Button>
+                    <Text
+                      element="span"
+                      text="Embalagem mantém o café intacto"
+                    />
+                  </Row>
+                  <Row gap={10} marginBottom="1.5rem">
+                    <Button background="purple_500" rounded>
+                      <ShoppingCart size={22} weight="fill" color="white" />{" "}
+                    </Button>
+                    <Text
+                      element="span"
+                      text="O café chega fresquinho até você"
+                    />
+                  </Row>
+                </div>
               </Row>
             </div>
             <img
@@ -73,7 +79,13 @@ export function Home() {
 
       <section>
         <Container>
-          <Text text="Nossos cafés" element="h2" fontFamily="BALOO" size="l" />
+          <Text
+            marginBottom="3.375rem"
+            text="Nossos cafés"
+            element="h2"
+            fontFamily="BALOO"
+            size="l"
+          />
 
           <CardCoffee />
         </Container>
