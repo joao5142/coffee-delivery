@@ -11,9 +11,14 @@ export const BannerSection = styled.section`
 	min-height: 544px;
 
 	background-image: url(${backgroundImage});
-
 	background-position: center top;
 	background-repeat: no-repeat;
-
 	background-size: 100% 544px;
+`;
+
+export const GridContainer = styled.div`
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 300px);
+
+	gap: 50px 0px;
 `;

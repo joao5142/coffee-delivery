@@ -2,7 +2,10 @@ import { useState } from "react";
 
 import { InputNumberContainer, MinusIcon, PlusIcon } from "./styles";
 
-export function InputNumber() {
+interface InputNumberProps {
+	wFull: boolean;
+}
+export function InputNumber({ wFull = false }: InputNumberProps) {
 	const [number, setNumber] = useState<number>(0);
 
 	function handleChangeNumber(mode: string) {
@@ -14,7 +17,7 @@ export function InputNumber() {
 	}
 
 	return (
-		<InputNumberContainer>
+		<InputNumberContainer wFull={wFull}>
 			<MinusIcon onClick={() => handleChangeNumber("subtract")} />
 			<span>{number}</span>
 			<PlusIcon onClick={() => handleChangeNumber("add")} />

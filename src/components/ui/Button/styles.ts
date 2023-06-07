@@ -5,30 +5,36 @@ import { ThemeColorTypes } from "@/styles/themes/defaultTheme";
 import { IButtonRounded } from ".";
 
 interface ButtonContainerProps extends IButtonRounded {
-  background?: ThemeColorTypes;
+	background?: ThemeColorTypes;
+	wFull?: boolean;
 }
 
 export const ButtonContainer = styled.button<ButtonContainerProps>`
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 
-  height: 2.375rem;
-  padding: 0.5rem;
+	height: 2.375rem;
+	padding: 0.5rem;
 
-  border-radius: 6px;
+	border-radius: 6px;
 
-  cursor: pointer;
+	cursor: pointer;
 
-  background-color: ${({ theme, background = "gray_400" }) =>
-    theme.colors[background!]};
+	background-color: ${({ theme, background = "gray_400" }) => theme.colors[background!]};
 
-  ${({ rounded }) =>
-    rounded &&
-    css`
-      border-radius: 50%;
-    `}
+	${({ wFull }) =>
+		wFull &&
+		css`
+			width: 100%;
+		`}
+
+	${({ rounded }) =>
+		rounded &&
+		css`
+			border-radius: 50%;
+		`}
 
   &:active {
-    transform: scale(0.98);
-  }
+		transform: scale(0.98);
+	}
 `;

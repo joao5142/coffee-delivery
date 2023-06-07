@@ -13,11 +13,18 @@ export const InputContainer = styled.input<IInput>`
 
 	border-radius: 4px;
 
-	color: ${({ theme }) => theme.colors.gray_600};
+	color: ${({ theme }) => theme.colors.gray_700};
+
 	font-size: ${({ theme }) => theme.font_size.ROBOTO.s};
 
 	&::placeholder {
 		color: ${({ theme }) => theme.colors.gray_600};
+	}
+	&:focus {
+		border-color: ${({ theme }) => theme.colors.yellow_900};
+	}
+	&:invalid {
+		border-color: #ff1414b7;
 	}
 
 	${({ wFull }) =>
