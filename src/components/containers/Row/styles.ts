@@ -17,8 +17,8 @@ export const RowContainer = styled(Box)<IRow>`
 
   gap: ${({ gap }) => gap}px;
 
-  ${({ wrap }) =>
-    wrap &&
+  ${({ wrapRow }) =>
+    wrapRow &&
     css`
       flex-wrap: wrap;
     `}

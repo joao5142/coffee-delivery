@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { HtmlHTMLAttributes, ReactNode } from "react";
 import { RowContainer } from "./styles";
 import { Box } from "@/utils/types/Box";
 
@@ -8,7 +8,7 @@ export interface IRow {
   justify?: "center" | "between" | "around" | "start" | "end";
   align?: "center" | "start" | "end";
   gap?: number;
-  wrap?: boolean;
+  wrapRow?: boolean;
   direction?: RowDirectionTypes;
 }
 
@@ -24,14 +24,14 @@ export function Row({
   align = "start",
   direction = "row",
   gap,
-  wrap,
+  wrapRow = false,
   ...rest
 }: RowProps) {
   return (
     <RowContainer
       {...rest}
       direction={direction}
-      wrap={wrap}
+      wrapRow={wrapRow}
       gap={gap}
       justify={justify}
       align={align}

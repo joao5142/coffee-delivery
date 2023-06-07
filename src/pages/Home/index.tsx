@@ -95,7 +95,7 @@ export function Home() {
             size="l"
           />
 
-          <Row gap={40} wrap={true}>
+          <Row gap={40} wrapRow={true}>
             {coffees.map((coffee) => {
               return <CardCoffee key={coffee.id} coffee={coffee} />;
             })}

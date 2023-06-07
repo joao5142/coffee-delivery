@@ -15,6 +15,7 @@ export interface IText {
   fontFamily?: ThemeFontFamilyTypes;
   color?: ThemeColorTypes;
   weight?: string;
+  lineHeight?: string;
 }
 interface TextProps
   extends Box,
@@ -31,6 +32,7 @@ export function Text({
   size = "l",
   color = "gray_800",
   weight = "400",
+  lineHeight = "130%",
   children,
   ...rest
 }: TextProps) {
@@ -41,6 +43,7 @@ export function Text({
       weight={weight}
       fontFamily={fontFamily}
       size={size}
+      lineHeight={lineHeight}
       as={element}
     >
       {children ? children : text}

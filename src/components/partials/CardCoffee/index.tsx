@@ -21,7 +21,7 @@ export function CardCoffee({ coffee }: CardCoffeeProps) {
     <CardCoffeeContainer>
       <ImageCoffee src={coffee.image} alt="" />
 
-      <Row>
+      <Row justify="center" gap={12}>
         {coffee.tags.map((tag) => {
           return <CoffeeTag key={tag}>{tag}</CoffeeTag>;
         })}
@@ -42,7 +42,7 @@ export function CardCoffee({ coffee }: CardCoffeeProps) {
         <div>
           <Text marginRight="0.25rem" text="R$" size="m" element="span" />
           <Text
-            text={coffee.price.toString().replace(".", ",")}
+            text={coffee.price.toFixed(2).toString().replace(".", ",")}
             fontFamily="BALOO"
             size="m"
             element="span"
