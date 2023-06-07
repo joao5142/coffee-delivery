@@ -1,33 +1,49 @@
-import { ThemeColorTypes, ThemeFontFamilyTypes, ThemeFontSizeTypes } from "@/styles/themes/defaultTheme";
+import {
+  ThemeColorTypes,
+  ThemeFontFamilyTypes,
+  ThemeFontSizeTypes,
+} from "@/styles/themes/defaultTheme";
 
 import { TextContainer } from "./styles";
 
 import { Box } from "@/utils/types/Box";
 
-import { HtmlHTMLAttributes } from "react";
+import { HtmlHTMLAttributes, ReactNode } from "react";
 
 export interface IText {
-	size?: ThemeFontSizeTypes;
-	fontFamily?: ThemeFontFamilyTypes;
-	color?: ThemeColorTypes;
-	weight?: string;
+  size?: ThemeFontSizeTypes;
+  fontFamily?: ThemeFontFamilyTypes;
+  color?: ThemeColorTypes;
+  weight?: string;
 }
-interface TextProps extends Box, IText, Omit<HtmlHTMLAttributes<HTMLElement>, "color"> {
-	element: any;
-	text: string;
+interface TextProps
+  extends Box,
+    IText,
+    Omit<HtmlHTMLAttributes<HTMLElement>, "color"> {
+  element: any;
+  text?: string;
+  children?: ReactNode;
 }
 export function Text({
-	text,
-	element,
-	fontFamily = "ROBOTO",
-	size = "l",
-	color = "gray_800",
-	weight = "400",
-	...rest
+  text,
+  element,
+  fontFamily = "ROBOTO",
+  size = "l",
+  color = "gray_800",
+  weight = "400",
+  children,
+  ...rest
 }: TextProps) {
-	return (
-		<TextContainer {...rest} color={color} fontFamily={fontFamily} size={size} as={element}>
-			{text}
-		</TextContainer>
-	);
+  return (
+    <TextContainer
+      {...rest}
+      color={color}
+      weight={weight}
+      fontFamily={fontFamily}
+      size={size}
+      as={element}
+    >
+      {children ? children : text}
+    </TextContainer>
+  );
 }

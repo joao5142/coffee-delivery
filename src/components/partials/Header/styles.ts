@@ -1,4 +1,4 @@
-import { ButtonContainer as Button } from "@/components/ui/Button/styles";
+import { ButtonContainer } from "@/components/ui/Button/styles";
 
 import { MapPin, ShoppingCart } from "phosphor-react";
 
@@ -6,6 +6,10 @@ import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
   padding: 2rem 0rem;
+
+  img {
+    cursor: pointer;
+  }
 `;
 
 export const HeaderList = styled.div`
@@ -13,7 +17,7 @@ export const HeaderList = styled.div`
   gap: 1.5rem;
 `;
 
-export const CartButton = styled(Button).attrs(({ theme }) => ({
+export const CartButton = styled(ButtonContainer).attrs(({ theme }) => ({
   background: "yellow_100",
 }))`
   position: relative;
@@ -41,7 +45,7 @@ export const CartButton = styled(Button).attrs(({ theme }) => ({
   }
 `;
 
-export const LocationButton = styled(Button).attrs(({ theme }) => ({
+export const LocationButton = styled(ButtonContainer).attrs(({ theme }) => ({
   background: "purple_100",
 }))`
   span {
