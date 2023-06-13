@@ -1,10 +1,11 @@
 export interface ICoffee {
-  id: string | number;
+  id: number;
   name: string;
   description: string;
   price: number;
   tags: string[];
   image: string;
+  quantity?: number;
 }
 export const coffees: ICoffee[] = [
   {
@@ -14,6 +15,7 @@ export const coffees: ICoffee[] = [
     price: 9.9,
     tags: ["Tradicional"],
     image: "/assets/images/coffees/coffee-1.png",
+    quantity: 0,
   },
   {
     id: 2,
@@ -22,6 +24,7 @@ export const coffees: ICoffee[] = [
     price: 9.9,
     tags: ["Tradicional"],
     image: "/assets/images/coffees/coffee-2.png",
+    quantity: 0,
   },
   {
     id: 3,
@@ -30,6 +33,7 @@ export const coffees: ICoffee[] = [
     price: 9.9,
     tags: ["Tradicional"],
     image: "/assets/images/coffees/coffee-3.png",
+    quantity: 0,
   },
   {
     id: 4,
@@ -38,6 +42,7 @@ export const coffees: ICoffee[] = [
     price: 9.9,
     tags: ["Tradicional", "Gelado"],
     image: "/assets/images/coffees/coffee-4.png",
+    quantity: 0,
   },
   {
     id: 5,
@@ -46,6 +51,7 @@ export const coffees: ICoffee[] = [
     price: 9.9,
     tags: ["Tradicional", "Com Leite"],
     image: "/assets/images/coffees/coffee-5.png",
+    quantity: 0,
   },
   {
     id: 6,
@@ -55,6 +61,7 @@ export const coffees: ICoffee[] = [
     price: 9.9,
     tags: ["Tradicional", "Com Leite"],
     image: "/assets/images/coffees/coffee-6.png",
+    quantity: 0,
   },
   {
     id: 7,
@@ -64,6 +71,7 @@ export const coffees: ICoffee[] = [
     price: 9.9,
     tags: ["Tradicional", "Com Leite"],
     image: "/assets/images/coffees/coffee-7.png",
+    quantity: 0,
   },
   {
     id: 8,
@@ -73,6 +81,7 @@ export const coffees: ICoffee[] = [
     price: 9.9,
     tags: ["Tradicional", "Com Leite"],
     image: "/assets/images/coffees/coffee-8.png",
+    quantity: 0,
   },
   {
     id: 9,
@@ -81,6 +90,7 @@ export const coffees: ICoffee[] = [
     price: 9.9,
     tags: ["Tradicional", "Com Leite"],
     image: "/assets/images/coffees/coffee-9.png",
+    quantity: 0,
   },
   {
     id: 10,
@@ -89,6 +99,7 @@ export const coffees: ICoffee[] = [
     price: 9.9,
     tags: ["Tradicional", "Com Leite"],
     image: "/assets/images/coffees/coffee-10.png",
+    quantity: 0,
   },
   {
     id: 11,
@@ -98,6 +109,7 @@ export const coffees: ICoffee[] = [
     price: 9.9,
     tags: ["Especial", "Alcoólico", "Gelado"],
     image: "/assets/images/coffees/coffee-11.png",
+    quantity: 0,
   },
   {
     id: 12,
@@ -106,6 +118,7 @@ export const coffees: ICoffee[] = [
     price: 9.9,
     tags: ["Especial"],
     image: "/assets/images/coffees/coffee-12.png",
+    quantity: 0,
   },
   {
     id: 13,
@@ -114,6 +127,7 @@ export const coffees: ICoffee[] = [
     price: 9.9,
     tags: ["Especial"],
     image: "/assets/images/coffees/coffee-13.png",
+    quantity: 0,
   },
   {
     id: 14,
@@ -122,5 +136,6 @@ export const coffees: ICoffee[] = [
     price: 9.9,
     tags: ["Especial", "Alcoólico"],
     image: "/assets/images/coffees/coffee-14.png",
+    quantity: 0,
   },
 ];

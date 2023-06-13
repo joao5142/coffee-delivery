@@ -3,7 +3,8 @@ import { InputNumber } from "@/components/ui/InputNumber";
 import { Button } from "@/components/ui/Button";
 import { Row } from "@/components/containers/Row";
 
-import { ICoffee } from "@/mocks/coffees";
+import { HTMLAttributes } from "react";
+import { useContextSelector } from "use-context-selector";
 
 import {
   CardCoffeeContainer,
@@ -11,14 +12,56 @@ import {
   ImageCoffee,
   ShoppingCartIcon,
 } from "./styles";
+import { OrderContext } from "@/contexts/OrderContext";
+import { ICoffee } from "@/reducers/order/reducer";
+import { CoffeeContext } from "@/contexts/CoffeesContext";
+import { Alert } from "@/utils/Alert";
 
-interface CardCoffeeProps {
+interface CardCoffeeProps extends HTMLAttributes<HTMLDivElement> {
   coffee: ICoffee;
 }
 
-export function CardCoffee({ coffee }: CardCoffeeProps) {
+export function CardCoffee({ coffee, ...rest }: CardCoffeeProps) {
+  const addCoffeeToCart = useContextSelector(OrderContext, (context) => {
+    return context.addCoffee;
+  });
+
+  const changeCoffeeQuantityOrder = useContextSelector(
+    OrderContext,
+    (context) => {
+      return context.changeCoffeeQuantity;
+    }
+  );
+
+  const changeQuantityCoffee = useContextSelector(CoffeeContext, (context) => {
+    return context.changeQuantityCoffee;
+  });
+
+  async function handleAddCoffeeToCart() {
+    try {
+      await addCoffeeToCart(coffee);
+
+      if (coffee.quantity == 0) {
+        changeQuantityCoffee(1, coffee.id);
+      }
+    } catch (err) {
+      Alert.error("Ocorreu um error interno. Tente novamente mais tarde!");
+      console.error(err);
+    }
+  }
+
+  async function handleChangeCoffeeQuantity(value: number) {
+    try {
+      await changeCoffeeQuantityOrder(value, coffee);
+      changeQuantityCoffee(value, coffee.id);
+    } catch (err) {
+      Alert.error("Ocorreu um error interno. Tente novamente mais tarde!");
+      console.error(err);
+    }
+  }
+
   return (
-    <CardCoffeeContainer>
+    <CardCoffeeContainer {...rest}>
       <ImageCoffee src={coffee.image} alt="" />
 
       <Row justify="center" gap={12}>
@@ -49,8 +92,11 @@ export function CardCoffee({ coffee }: CardCoffeeProps) {
             color="gray_700"
           />
         </div>
-        <InputNumber />
-        <Button background="purple_900">
+        <InputNumber
+          value={coffee.quantity}
+          onValueChange={(value) => handleChangeCoffeeQuantity(value)}
+        />
+        <Button background="purple_900" onClick={handleAddCoffeeToCart}>
           <ShoppingCartIcon />
         </Button>
       </Row>

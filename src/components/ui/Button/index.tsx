@@ -2,21 +2,28 @@ import { ThemeColorTypes } from "@/styles/themes/defaultTheme";
 
 import { ButtonContainer } from "./styles";
 
-import { ReactNode } from "react";
+import { ReactNode, ButtonHTMLAttributes } from "react";
 
 export interface IButtonRounded {
-	rounded?: boolean;
+  rounded?: boolean;
 }
 
-interface ButtonProps extends IButtonRounded {
-	children: ReactNode;
-	background?: ThemeColorTypes;
+interface ButtonProps
+  extends IButtonRounded,
+    ButtonHTMLAttributes<HTMLButtonElement> {
+  children: ReactNode;
+  background?: ThemeColorTypes;
 }
 
-export function Button({ background = "gray_400", children, rounded = false }: ButtonProps) {
-	return (
-		<ButtonContainer rounded={rounded} background={background}>
-			{children}
-		</ButtonContainer>
-	);
+export function Button({
+  background = "gray_400",
+  children,
+  rounded = false,
+  ...rest
+}: ButtonProps) {
+  return (
+    <ButtonContainer rounded={rounded} background={background} {...rest}>
+      {children}
+    </ButtonContainer>
+  );
 }

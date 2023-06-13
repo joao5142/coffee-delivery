@@ -3,24 +3,28 @@ import { useState } from "react";
 import { InputNumberContainer, MinusIcon, PlusIcon } from "./styles";
 
 interface InputNumberProps {
-	wFull: boolean;
+  wFull?: boolean;
+  value?: number;
+  onValueChange: (value: number) => void;
 }
-export function InputNumber({ wFull = false }: InputNumberProps) {
-	const [number, setNumber] = useState<number>(0);
+export function InputNumber({
+  wFull = false,
+  value = 0,
+  onValueChange,
+}: InputNumberProps) {
+  function handleChangeNumber(mode: string) {
+    if (mode === "add" && value < 10) {
+      onValueChange(value + 1);
+    } else if (mode == "subtract" && value >= 1) {
+      onValueChange(value - 1);
+    }
+  }
 
-	function handleChangeNumber(mode: string) {
-		if (mode === "add" && number < 10) {
-			setNumber((prevState) => prevState + 1);
-		} else if (mode == "subtract" && number >= 1) {
-			setNumber((prevState) => prevState - 1);
-		}
-	}
-
-	return (
-		<InputNumberContainer wFull={wFull}>
-			<MinusIcon onClick={() => handleChangeNumber("subtract")} />
-			<span>{number}</span>
-			<PlusIcon onClick={() => handleChangeNumber("add")} />
-		</InputNumberContainer>
-	);
+  return (
+    <InputNumberContainer wFull={wFull}>
+      <MinusIcon onClick={() => handleChangeNumber("subtract")} />
+      <span>{value}</span>
+      <PlusIcon onClick={() => handleChangeNumber("add")} />
+    </InputNumberContainer>
+  );
 }
