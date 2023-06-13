@@ -1,13 +1,6 @@
 import { Container } from "@components/wrappers/Container";
 
-import {
-  CartButton,
-  HeaderContainer,
-  HeaderList,
-  LocationButton,
-  MapPinIcon,
-  ShoppingCartIcon,
-} from "./styles";
+import { CartButton, HeaderContainer, HeaderList, LocationButton, MapPinIcon, ShoppingCartIcon } from "./styles";
 
 import logo from "@assets/images/logo.svg";
 
@@ -17,42 +10,42 @@ import { useNavigate } from "react-router-dom";
 import { useContextSelector } from "use-context-selector";
 import { OrderContext } from "@/contexts/OrderContext";
 
+import { useEffect } from "react";
+
 export function Header() {
-  const coffees = useContextSelector(OrderContext, (context) => {
-    return context.coffees;
-  });
+	const coffees = useContextSelector(OrderContext, (context) => {
+		return context.coffees;
+	});
 
-  const coffeesQuantity = coffees.length;
+	const coffeesQuantity = coffees.length;
 
-  const navigate = useNavigate();
+	const navigate = useNavigate();
 
-  function handleNavigateHome() {
-    navigate("/");
-  }
-  function handleNavigateCheckout() {
-    navigate("/checkout");
-  }
-  return (
-    <HeaderContainer>
-      <Container>
-        <Row align="center" justify="between">
-          <img src={logo} onClick={handleNavigateHome} data-logo />
+	function handleNavigateHome() {
+		navigate("/");
+	}
+	function handleNavigateCheckout() {
+		navigate("/checkout");
+	}
 
-          <HeaderList>
-            <LocationButton>
-              <MapPinIcon />
-              <span>Porto Alegre, RS</span>
-            </LocationButton>
+	return (
+		<HeaderContainer>
+			<Container>
+				<Row align="center" justify="between">
+					<img src={logo} onClick={handleNavigateHome} data-logo />
 
-            <CartButton
-              data-quantity-coffee-in-cart={coffeesQuantity}
-              onClick={handleNavigateCheckout}
-            >
-              <ShoppingCartIcon />
-            </CartButton>
-          </HeaderList>
-        </Row>
-      </Container>
-    </HeaderContainer>
-  );
+					<HeaderList>
+						<LocationButton>
+							<MapPinIcon />
+							<span>Itambé, PE</span>
+						</LocationButton>
+
+						<CartButton data-quantity-coffee-in-cart={coffeesQuantity} onClick={handleNavigateCheckout}>
+							<ShoppingCartIcon />
+						</CartButton>
+					</HeaderList>
+				</Row>
+			</Container>
+		</HeaderContainer>
+	);
 }

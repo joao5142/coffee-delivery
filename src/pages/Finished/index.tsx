@@ -7,7 +7,9 @@ import { Col } from "@/components/containers/Col";
 import { CardInfos, FinishedContainer } from "./styles";
 
 import deliveredImg from "@assets/images/delivered.svg";
+
 import { Button } from "@/components/ui/Button";
+
 import { CurrencyDollar, MapPin, Timer } from "phosphor-react";
 
 export function Finished() {

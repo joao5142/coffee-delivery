@@ -1,21 +1,13 @@
 import { InputContainer } from "./styles";
 
-import { InputHTMLAttributes, forwardRef } from "react";
-
-import { UseFormRegister } from "react-hook-form";
+import { HTMLAttributes, forwardRef } from "react";
 
 export interface IInput {
 	wFull?: boolean;
+	name: string;
 }
-interface InputProps extends InputHTMLAttributes<HTMLInputElement>, IInput {}
+interface InputProps extends HTMLAttributes<HTMLInputElement>, IInput {}
 
-// export function Input({ wFull = false, ...rest }: InputProps) {
-// 	return <InputContainer wFull={wFull} {...rest} />;
-// }
-
-// you can use React.forwardRef to pass the ref too
-export const Input = forwardRef<HTMLInputElement, { wFull?: boolean } & ReturnType<UseFormRegister<InputProps>>>(
-	({ onChange, onBlur, name, wFull, ...rest }, ref) => (
-		<InputContainer {...rest} name={name} onChange={onChange} onBlur={onBlur} wFull={wFull} ref={ref} />
-	)
-);
+export const Input = forwardRef<HTMLInputElement, InputProps>(({ onChange, onBlur, name, wFull, ...rest }, ref) => (
+	<InputContainer as="input" {...rest} name={name} onChange={onChange} onBlur={onBlur} wFull={wFull} ref={ref} />
+));

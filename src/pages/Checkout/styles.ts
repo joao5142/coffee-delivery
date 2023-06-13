@@ -82,29 +82,3 @@ export const MoneyIcon = styled(Money).attrs(({ theme }) => ({
 	size: 22,
 	color: theme.colors.purple_500,
 }))``;
-
-export const SubmitButton = styled.button`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	width: 100%;
-	min-width: 11.5625rem;
-	height: 46px;
-	margin-top: 1.5rem;
-
-	font-size: ${(props) => props.theme.font_size.ROBOTO.s};
-	color: ${(props) => props.theme.colors.white};
-
-	background-color: ${(props) => props.theme.colors.yellow_500};
-
-	text-transform: uppercase;
-
-	border-radius: 6px;
-
-	cursor: pointer;
-
-	&:active {
-		transform: scale(0.98);
-	}
-`;
