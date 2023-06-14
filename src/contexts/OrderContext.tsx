@@ -13,7 +13,7 @@ import {
   orderReducer,
 } from "@/reducers/order/reducer";
 
-import { ReactNode, useEffect, useReducer } from "react";
+import { ReactNode, useReducer } from "react";
 
 import { createContext } from "use-context-selector";
 
