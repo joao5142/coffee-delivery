@@ -35,12 +35,10 @@ export const ImageCoffee = styled.img`
   margin-top: -50px;
 `;
 
-export const ShoppingCartIcon = styled(ShoppingCartSimple).attrs(
-  ({ theme }) => ({
-    size: 22,
-    color: "white",
-    weight: "fill",
-  })
-)`
+export const ShoppingCartIcon = styled(ShoppingCartSimple).attrs({
+  size: 22,
+  color: "white",
+  weight: "fill",
+})`
   cursor: pointer;
 `;
