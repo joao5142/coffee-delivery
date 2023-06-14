@@ -1,20 +1,32 @@
 import {
   addCoffeeToCartAction,
+  changeAddress,
+  changePaymentMode,
   removeCoffeeInCartAction,
 } from "@/reducers/order/actions";
 
-import { ICoffee, orderReducer } from "@/reducers/order/reducer";
+import {
+  IAddress,
+  ICoffee,
+  PAYMENT_OPTION,
+  orderReducer,
+} from "@/reducers/order/reducer";
 
 import { ReactNode, useReducer } from "react";
 
 import { createContext } from "use-context-selector";
+
 import { changeCoffeeQuantityAction } from "../reducers/order/actions";
 
 interface OrderContextProps {
   coffees: ICoffee[];
+  address: IAddress;
+  paymentMode: PAYMENT_OPTION;
   addCoffee: (coffee: ICoffee) => void;
   removeCoffee: (id: number) => void;
   changeCoffeeQuantity: (quantity: number, coffee: ICoffee) => void;
+  setAddress: (address: IAddress) => void;
+  setPaymentMode: (paymentMode: PAYMENT_OPTION) => void;
 }
 
 export const OrderContext = createContext({} as OrderContextProps);
@@ -77,9 +89,40 @@ export function OrderProvider({ children }: OrderProviderProps) {
     });
   }
 
+  function setAddress(address: IAddress) {
+    return new Promise((resolve, reject) => {
+      try {
+        dispatch(changeAddress(address));
+        resolve(true);
+      } catch (error) {
+        reject(true);
+      }
+    });
+  }
+
+  function setPaymentMode(paymentMode: PAYMENT_OPTION) {
+    return new Promise((resolve, reject) => {
+      try {
+        dispatch(changePaymentMode(paymentMode));
+        resolve(true);
+      } catch (error) {
+        reject(true);
+      }
+    });
+  }
+
   return (
     <OrderContext.Provider
-      value={{ coffees, addCoffee, removeCoffee, changeCoffeeQuantity }}
+      value={{
+        coffees,
+        addCoffee,
+        removeCoffee,
+        changeCoffeeQuantity,
+        setAddress,
+        setPaymentMode,
+        paymentMode,
+        address,
+      }}
     >
       {children}
     </OrderContext.Provider>

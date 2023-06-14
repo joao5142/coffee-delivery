@@ -12,19 +12,19 @@ export interface ICoffee {
   quantity?: number;
 }
 
-interface IAddress {
+export interface IAddress {
   zipCode: string;
   street: string;
   number: number;
   complement: string;
   neighborhood: string;
   city: string;
-  uf: string;
+  federatedUnit: string;
 }
-enum PAYMENT_OPTION {
-  CREDIT,
-  DEBIT,
-  CASH,
+export enum PAYMENT_OPTION {
+  CREDIT = "CREDIT",
+  DEBIT = "DEBIT",
+  CASH = "CASH",
 }
 
 interface OrderState {
@@ -71,6 +71,18 @@ export function orderReducer(state: OrderState, action: any) {
         );
 
         Alert.success("Café removido do carrinho!");
+      });
+    }
+
+    case ActionTypes.CHANGE_ADDRESS: {
+      return produce(state, (draft) => {
+        draft.address = action.payload.address;
+      });
+    }
+
+    case ActionTypes.CHANGE_PAYMENT_MODE: {
+      return produce(state, (draft) => {
+        draft.paymentMode = action.payload.paymentMode;
       });
     }
 
