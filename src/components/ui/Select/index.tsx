@@ -13,10 +13,7 @@ interface SelectProps
     ISelect {}
 
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
-  (
-    { onChange, onBlur, name, wFull, placeholder, value, children, ...rest },
-    ref
-  ) => (
+  ({ onChange, onBlur, name, wFull, value, children, ...rest }, ref) => (
     <SelectContainer
       as="select"
       {...rest}

@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 
 import { Card } from "@/styles/global";
+
 import { ShoppingCartSimple } from "phosphor-react";
 
 export const CardCoffeeContainer = styled(Card)`

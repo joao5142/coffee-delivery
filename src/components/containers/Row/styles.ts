@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-import { IRow } from ".";
+import { AlignType, IRow, JustifyType } from ".";
 
 import { Box } from "@/styles/global";
 
@@ -29,7 +29,7 @@ export const RowContainer = styled(Box)<IRow>`
           flex-direction: ${direction};
         `
       : css`
-          align-items: ${alignTypes[align!]};
-          justify-content: ${alignTypes[justify!]};
+          align-items: ${alignTypes[align as JustifyType]};
+          justify-content: ${alignTypes[justify as AlignType]};
         `}
 `;

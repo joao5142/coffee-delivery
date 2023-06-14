@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { InputNumberContainer, MinusIcon, PlusIcon } from "./styles";
 
 interface InputNumberProps {

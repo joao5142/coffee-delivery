@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle, css } from "styled-components";
 
-import { Box as BoxProps } from "@/utils/types/Box";
+import { IBox as BoxProps } from "@/utils/types/Box";
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -34,97 +34,97 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const Box = styled.div<BoxProps>`
-	${({ margin }) =>
-		margin &&
-		css`
-			margin: ${margin};
-		`}
+  ${({ margin }) =>
+    margin &&
+    css`
+      margin: ${margin};
+    `}
 
-	${({ marginTop }) =>
-		marginTop &&
-		css`
-			margin-top: ${marginTop};
-		`}
+  ${({ marginTop }) =>
+    marginTop &&
+    css`
+      margin-top: ${marginTop};
+    `}
     
     ${({ marginBottom }) =>
-		marginBottom &&
-		css`
-			margin-bottom: ${marginBottom};
-		`}
+    marginBottom &&
+    css`
+      margin-bottom: ${marginBottom};
+    `}
 
     ${({ marginLeft }) =>
-		marginLeft &&
-		css`
-			margin-left: ${marginLeft};
-		`}
+    marginLeft &&
+    css`
+      margin-left: ${marginLeft};
+    `}
 
     ${({ marginRight }) =>
-		marginRight &&
-		css`
-			margin-right: ${marginRight};
-		`}
+    marginRight &&
+    css`
+      margin-right: ${marginRight};
+    `}
 
   ${({ padding }) =>
-		padding &&
-		css`
-			padding: ${padding};
-		`}
+    padding &&
+    css`
+      padding: ${padding};
+    `}
 
     ${({ paddingTop }) =>
-		paddingTop &&
-		css`
-			padding-top: ${paddingTop};
-		`}
+    paddingTop &&
+    css`
+      padding-top: ${paddingTop};
+    `}
 
     ${({ paddingBottom }) =>
-		paddingBottom &&
-		css`
-			padding-bottom: ${paddingBottom};
-		`}
+    paddingBottom &&
+    css`
+      padding-bottom: ${paddingBottom};
+    `}
     ${({ paddingLeft }) =>
-		paddingLeft &&
-		css`
-			padding-left: ${paddingLeft};
-		`}
+    paddingLeft &&
+    css`
+      padding-left: ${paddingLeft};
+    `}
     ${({ paddingRight }) =>
-		paddingRight &&
-		css`
-			padding-right: ${paddingRight};
-		`}
+    paddingRight &&
+    css`
+      padding-right: ${paddingRight};
+    `}
 `;
 
 export const Card = styled(Box)`
-	padding: 40px;
-	background-color: ${(props) => props.theme.colors.gray_200};
-	border-radius: 6px;
+  padding: 40px;
+  background-color: ${(props) => props.theme.colors.gray_200};
+  border-radius: 6px;
 
-	@media (max-width: 600px) {
-		padding: 20px;
-	}
+  @media (max-width: 600px) {
+    padding: 20px;
+  }
 `;
 
 export const Field = styled.div`
-	height: 42px;
+  height: 42px;
 
-	padding: 0.75rem;
+  padding: 0.75rem;
 
-	background: ${({ theme }) => theme.colors.gray_300};
+  background: ${({ theme }) => theme.colors.gray_300};
 
-	border: 1px solid ${({ theme }) => theme.colors.gray_400};
+  border: 1px solid ${({ theme }) => theme.colors.gray_400};
 
-	border-radius: 4px;
+  border-radius: 4px;
 
-	color: ${({ theme }) => theme.colors.gray_700};
+  color: ${({ theme }) => theme.colors.gray_700};
 
-	font-size: ${({ theme }) => theme.font_size.ROBOTO.s};
+  font-size: ${({ theme }) => theme.font_size.ROBOTO.s};
 
-	&::placeholder {
-		color: ${({ theme }) => theme.colors.gray_600};
-	}
-	&:focus {
-		border-color: ${({ theme }) => theme.colors.yellow_900};
-	}
-	&:invalid {
-		border-color: #ff1414b7;
-	}
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.gray_600};
+  }
+  &:focus {
+    border-color: ${({ theme }) => theme.colors.yellow_900};
+  }
+  &:invalid {
+    border-color: #ff1414b7;
+  }
 `;
