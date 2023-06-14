@@ -26,7 +26,6 @@ import { Alert } from "@/utils/Alert";
 import { PAYMENT_OPTION } from "@/reducers/order/reducer";
 import { useContextSelector } from "use-context-selector";
 import { OrderContext } from "@/contexts/OrderContext";
-import { setPaymentMode, changeAddress } from "../../reducers/order/actions";
 
 export function Checkout() {
   const [paymentOption, setPaymentOption] = useState<PAYMENT_OPTION>();

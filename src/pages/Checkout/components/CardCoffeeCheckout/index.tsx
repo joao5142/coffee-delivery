@@ -67,6 +67,7 @@ export function CardCoffeeCheckout() {
 
   function handleRemoveCoffeeInCart(id: number) {
     removeCoffeeInCart(id);
+    changeQuantityCoffee(0, id);
   }
 
   return (
