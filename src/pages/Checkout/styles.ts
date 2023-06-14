@@ -41,15 +41,11 @@ export const DollarIcon = styled(CurrencyDollar).attrs(({ theme }) => ({
   color: theme.colors.purple_500,
 }))``;
 
-interface SelectProps {
-  isActive: boolean;
-}
-
 export const SelectPayment = styled(RadioGroup.Item)`
   width: 100%;
 `;
 
-export const Select = styled.button<SelectProps>`
+export const Select = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;

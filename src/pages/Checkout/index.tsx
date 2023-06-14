@@ -120,7 +120,7 @@ export function Checkout() {
 
               <Form
                 id="payment-form"
-                onFormSubmit={(data) => handleNavigateFinishedOrder(data)}
+                onFormSubmit={() => handleNavigateFinishedOrder()}
               />
             </CardContainer>
             <CardContainer marginTop="0.75rem">
