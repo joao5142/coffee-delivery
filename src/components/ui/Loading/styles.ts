@@ -17,6 +17,8 @@ export const LoadingContainerOverlay = styled(Dialog.Overlay)`
 export const LoadingContent = styled(Dialog.Content)`
   position: absolute;
   inset: 0;
+  width: 100vw;
+  height: 100vh;
 
   display: flex;
   align-items: center;

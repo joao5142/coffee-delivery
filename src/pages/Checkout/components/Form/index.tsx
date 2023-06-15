@@ -43,7 +43,7 @@ interface IFederatedUnits {
 export function Form({ onFormSubmit, ...rest }: FormProps) {
   const [federatedUnits, setFederatedUnits] = useState<IFederatedUnits[]>([]);
   const [townships, setTownships] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const address = useContextSelector(OrderContext, (context) => {
     return context.address;
