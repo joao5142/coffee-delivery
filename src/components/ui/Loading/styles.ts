@@ -15,20 +15,17 @@ export const LoadingContainerOverlay = styled(Dialog.Overlay)`
 `;
 
 export const LoadingContent = styled(Dialog.Content)`
-  position: absolute;
+  z-index: 2;
+  position: fixed;
   inset: 0;
-  width: 100vw;
-  height: 100vh;
 
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
 
   img {
     width: 250px;
     height: 250px;
-    object-fit: cover;
   }
 
   border: 0px;
