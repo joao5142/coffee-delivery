@@ -32,7 +32,10 @@
 <a href="https://www.linkedin.com/in/jo%C3%A3o-paulo-8b38b8254/">
 	<img src="https://img.shields.io/badge/-João-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https:https://www.linkedin.com/in/jo%C3%A3o-paulo-ferreira-neto-467880182/">
 </a>
-<h4  style="display: inline_block">Visualização do site :</h4><a style="display: inline_block" target="blank" href="[https://portfoliojao.netlify.app/](https://coffee-delivery-cfg7r9ntg-joao5142.vercel.app/)">Preview no Vercel</a>
+
+<a>
+	<h4  style="display: inline_block">Visualização do site :</h4><a style="display: inline_block" target="blank" href="[https://portfoliojao.netlify.app/](https://coffee-delivery-cfg7r9ntg-joao5142.vercel.app/)">Preview no Vercel
+</a>
 <a href="mailto:joaopauloneto3687@gmail.com">
 	<img src="https://img.shields.io/badge/-joaopauloneto3687@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:joaopauloneto3687@gmail.com">
 </a>
